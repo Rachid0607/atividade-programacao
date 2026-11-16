@@ -52,6 +52,11 @@
   font-size: 0.88rem;
 }
 
+.author {
+  font-weight: 600;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr 1fr;

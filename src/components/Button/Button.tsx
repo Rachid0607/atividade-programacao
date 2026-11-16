@@ -19,8 +19,9 @@ interface ButtonProps {
   disabled?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  /** Ícone exibido depois do texto. */
   icon?: LucideIcon;
+  /** Lado em que o ícone aparece. */
+  iconPosition?: 'left' | 'right';
   fullWidth?: boolean;
 }
 
@@ -34,14 +35,24 @@ export default function Button({
   variant = 'primary',
   size = 'md',
   icon: Icon,
+  iconPosition = 'right',
   fullWidth,
 }: ButtonProps) {
-  const className = cn(styles.button, styles[variant], styles[size], fullWidth && styles.full);
+  const className = cn(
+    styles.button,
+    styles[variant],
+    styles[size],
+    iconPosition === 'left' && styles.iconLeft,
+    fullWidth && styles.full,
+  );
+
+  const icon = Icon && <Icon className={styles.icon} size={18} aria-hidden="true" />;
 
   const content = (
     <>
+      {iconPosition === 'left' && icon}
       <span>{children}</span>
-      {Icon && <Icon className={styles.icon} size={18} aria-hidden="true" />}
+      {iconPosition === 'right' && icon}
     </>
   );
 

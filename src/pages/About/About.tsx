@@ -3,21 +3,10 @@ import Card from '../../components/Card/Card';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Section from '../../components/Section/Section';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import TextCard from '../../components/TextCard/TextCard';
 import { contextSections, justification, objectives } from '../../data/about';
-import type { AboutSection } from '../../types';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import styles from './About.module.css';
-
-/** Card com título + parágrafos (usado para problema, contexto e justificativa). */
-function TextCard({ section, highlight }: { section: AboutSection; highlight?: boolean }) {
-  return (
-    <Card icon={section.icon} title={section.title} variant={highlight ? 'highlight' : 'default'}>
-      {section.paragraphs.map((paragraph) => (
-        <p key={paragraph}>{paragraph}</p>
-      ))}
-    </Card>
-  );
-}
 
 export default function About() {
   usePageTitle('Sobre o Projeto');

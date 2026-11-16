@@ -43,18 +43,11 @@
   right: 16px;
   font-size: 0.78rem;
   font-weight: 800;
-  color: var(--border);
+  color: #b4c0d6;
 }
 
 .icon {
-  display: grid;
-  place-items: center;
-  width: 60px;
-  height: 60px;
   margin-bottom: 6px;
-  border-radius: 18px;
-  background: var(--gradient-brand);
-  color: #fff;
 }
 
 .title {

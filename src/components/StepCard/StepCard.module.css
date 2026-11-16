@@ -7,7 +7,8 @@
   text-align: center;
 }
 
-/* Linha que conecta um passo ao próximo (desktop) */
+/* Linha tracejada que conecta um passo ao próximo (desktop).
+   A largura considera o gap de 24px da grade dos passos. */
 .step:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -19,12 +20,9 @@
   opacity: 0.5;
 }
 
-.marker {
+.number {
   position: relative;
   z-index: 1;
-}
-
-.number {
   display: grid;
   place-items: center;
   width: 56px;
@@ -49,7 +47,7 @@
   gap: 10px;
   width: 100%;
   height: 100%;
-  padding: 28px 22px;
+  padding: 28px 22px 24px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -64,16 +62,6 @@
   box-shadow: var(--shadow-md);
 }
 
-.icon {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  background: var(--accent-soft);
-  color: #b07f00;
-}
-
 .title {
   font-size: 1.15rem;
   color: var(--navy-900);
@@ -84,7 +72,18 @@
   color: var(--text-muted);
 }
 
-/* Tablet / mobile: passos empilhados, linha vertical */
+/* Selo no rodapé do card (fica sempre alinhado embaixo) */
+.badge {
+  margin-top: auto;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: var(--blue-50);
+  color: var(--blue-600);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Tablet / mobile: passos em grade de 2 ou 1 coluna, sem linha */
 @media (max-width: 960px) {
   .step:not(:last-child)::after {
     display: none;

@@ -2,6 +2,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
 import DashboardMockup from '../../components/DashboardMockup/DashboardMockup';
+import Eyebrow from '../../components/Eyebrow/Eyebrow';
 import Section from '../../components/Section/Section';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import StatCard from '../../components/StatCard/StatCard';
@@ -23,10 +24,9 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroText}>
-            <span className={styles.badge}>
-              <Sparkles size={16} aria-hidden="true" />
+            <Eyebrow light icon={Sparkles}>
               TCC · Sistemas de Informação · UMC
-            </span>
+            </Eyebrow>
 
             <h1 className={styles.title}>
               SGEA
@@ -57,7 +57,7 @@ export default function Home() {
         <SectionTitle
           eyebrow="Como funciona"
           title="Da inscrição ao certificado em 4 passos"
-          subtitle="O participante só recebe o certificado depois de comprovar o que aprendeu."
+          subtitle="O participante só recebe o certificado depois de comprovar o que aprendeu: são necessários pelo menos 60% de acerto no questionário."
         />
         <ol className={styles.steps}>
           {steps.map((step) => (

@@ -2,20 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   min-height: 50vh;
-  justify-content: center;
   text-align: center;
-}
-
-.icon {
-  display: grid;
-  place-items: center;
-  width: 84px;
-  height: 84px;
-  border-radius: 24px;
-  background: var(--blue-50);
-  color: var(--blue-600);
 }
 
 .code {
@@ -47,10 +37,4 @@
   background: var(--border);
   font-size: 0.9em;
   color: var(--navy-800);
-}
-
-.back {
-  display: inline-block;
-  vertical-align: -3px;
-  margin-right: 6px;
 }

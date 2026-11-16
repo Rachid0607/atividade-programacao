@@ -278,26 +278,6 @@
   animation-delay: -2.5s;
 }
 
-.floatingIcon {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: var(--success-soft);
-  color: var(--success);
-}
-
-.qr {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: var(--navy-900);
-  color: #fff;
-}
-
 @keyframes float {
   0%,
   100% {

@@ -1,9 +1,34 @@
 import { Award, CalendarDays, LayoutDashboard, QrCode, Users } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { mockupChart, mockupKpis, mockupSessions } from '../../data/mockup';
+import { cn } from '../../utils/cn';
+import IconBox from '../IconBox/IconBox';
+import type { IconBoxTone } from '../IconBox/IconBox';
 import styles from './DashboardMockup.module.css';
 
 const sidebarIcons = [LayoutDashboard, CalendarDays, Users, Award];
 const weekDays = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D'];
+
+interface FloatingCardProps {
+  icon: LucideIcon;
+  tone: IconBoxTone;
+  title: string;
+  subtitle: string;
+  position: 'top' | 'bottom';
+}
+
+/** Cartão que "flutua" sobre a janela do mockup. */
+function FloatingCard({ icon, tone, title, subtitle, position }: FloatingCardProps) {
+  return (
+    <div className={cn(styles.floating, position === 'top' ? styles.floatingTop : styles.floatingBottom)}>
+      <IconBox icon={icon} tone={tone} size="sm" />
+      <div>
+        <strong>{title}</strong>
+        <span className={styles.small}>{subtitle}</span>
+      </div>
+    </div>
+  );
+}
 
 /** Ilustração do dashboard do SGEA feita somente com HTML + CSS. */
 export default function DashboardMockup() {
@@ -76,26 +101,20 @@ export default function DashboardMockup() {
         </div>
       </div>
 
-      {/* Cartões flutuantes */}
-      <div className={`${styles.floating} ${styles.floatingTop}`}>
-        <span className={styles.floatingIcon}>
-          <Award size={18} />
-        </span>
-        <div>
-          <strong>Aprovado: 85%</strong>
-          <span className={styles.small}>Certificado liberado</span>
-        </div>
-      </div>
-
-      <div className={`${styles.floating} ${styles.floatingBottom}`}>
-        <span className={styles.qr}>
-          <QrCode size={30} />
-        </span>
-        <div>
-          <strong>Certificado válido</strong>
-          <span className={styles.small}>hash #a3f9…c21e</span>
-        </div>
-      </div>
+      <FloatingCard
+        icon={Award}
+        tone="success"
+        title="Aprovado: 85%"
+        subtitle="Certificado liberado"
+        position="top"
+      />
+      <FloatingCard
+        icon={QrCode}
+        tone="dark"
+        title="Certificado válido"
+        subtitle="hash #a3f9…c21e"
+        position="bottom"
+      />
     </div>
   );
 }

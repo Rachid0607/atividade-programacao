@@ -38,6 +38,11 @@
   transform: translateX(3px);
 }
 
+/* Ícone à esquerda (ex.: "Voltar") se move para a esquerda */
+.iconLeft:hover .icon {
+  transform: translateX(-3px);
+}
+
 /* Tamanhos */
 .md {
   padding: 12px 22px;

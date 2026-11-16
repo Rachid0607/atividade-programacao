@@ -26,6 +26,8 @@ export interface Step {
   icon: LucideIcon;
   title: string;
   description: string;
+  /** Selo de destaque exibido no rodapé do passo (ex.: "Mínimo de 60% de acerto"). */
+  badge?: string;
 }
 
 /** Número/destaque exibido na página inicial. */
@@ -67,11 +69,13 @@ export interface SocialLink {
   url: string;
 }
 
-/** Pessoa exibida na página Autor. */
+/** Pessoa exibida na página Autor (autor, orientador e coorientador). */
 export interface Person {
   name: string;
+  /** Papel no projeto: "Autor", "Orientador" ou "Coorientador". */
   role: string;
   description: string;
+  /** Linhas de informação extra (curso, instituição...). */
   details: string[];
   links: SocialLink[];
 }

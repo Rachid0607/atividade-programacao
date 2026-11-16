@@ -4,10 +4,11 @@ import { CircleCheck, MessageSquare, Send } from 'lucide-react';
 import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
 import FormField from '../../components/FormField/FormField';
+import IconBox from '../../components/IconBox/IconBox';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Section from '../../components/Section/Section';
 import SocialLinks from '../../components/SocialLinks/SocialLinks';
-import { author } from '../../data/people';
+import { author } from '../../data/autor';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import styles from './Contact.module.css';
 
@@ -92,16 +93,14 @@ export default function Contact() {
             description="Este formulário é uma demonstração do front-end do projeto: os dados são validados no navegador e nenhuma informação é enviada a um servidor."
             variant="highlight"
           >
-            <p>Você também pode acompanhar o desenvolvimento do projeto pelo GitHub:</p>
+            <p>Você também pode falar comigo pelo LinkedIn ou acompanhar o projeto no GitHub:</p>
             <SocialLinks links={author.links} variant="dark" showLabel />
           </Card>
 
           <div className={styles.formCard}>
             {submitted ? (
               <div className={styles.success} role="status">
-                <span className={styles.successIcon}>
-                  <CircleCheck size={40} aria-hidden="true" />
-                </span>
+                <IconBox icon={CircleCheck} tone="success" size="xl" round />
                 <h2>Mensagem enviada!</h2>
                 <p>Obrigado pelo contato. Sua mensagem foi registrada com sucesso.</p>
                 <Button variant="secondary" onClick={handleNewMessage}>

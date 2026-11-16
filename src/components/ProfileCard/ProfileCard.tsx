@@ -1,10 +1,14 @@
 import { GraduationCap } from 'lucide-react';
 import type { Person } from '../../types';
+import { cn } from '../../utils/cn';
+import Eyebrow from '../Eyebrow/Eyebrow';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import styles from './ProfileCard.module.css';
 
 interface ProfileCardProps {
   person: Person;
+  /** Card maior, usado para o autor. */
+  featured?: boolean;
 }
 
 /** Pega as iniciais do primeiro e do último nome (ignorando "Prof."). */
@@ -15,17 +19,17 @@ function getInitials(name: string): string {
   return (first + last).toUpperCase();
 }
 
-export default function ProfileCard({ person }: ProfileCardProps) {
+export default function ProfileCard({ person, featured = false }: ProfileCardProps) {
   return (
-    <article className={styles.card}>
+    <article className={cn(styles.card, featured && styles.featured)}>
       <div className={styles.cover} />
 
-      {/* Foto placeholder: troque por <img src="..." /> quando tiver a foto */}
+      {/* Foto placeholder: troque por <img src="..." alt="..." /> quando tiver a foto */}
       <div className={styles.avatar} aria-hidden="true">
         {getInitials(person.name)}
       </div>
 
-      <span className={styles.role}>{person.role}</span>
+      <Eyebrow>{person.role}</Eyebrow>
       <h2 className={styles.name}>{person.name}</h2>
       <p className={styles.description}>{person.description}</p>
 
@@ -38,9 +42,11 @@ export default function ProfileCard({ person }: ProfileCardProps) {
         ))}
       </ul>
 
-      <div className={styles.links}>
-        <SocialLinks links={person.links} showLabel />
-      </div>
+      {person.links.length > 0 && (
+        <div className={styles.links}>
+          <SocialLinks links={person.links} showLabel />
+        </div>
+      )}
     </article>
   );
 }

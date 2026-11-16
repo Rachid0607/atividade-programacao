@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn';
+import Eyebrow from '../Eyebrow/Eyebrow';
 import styles from './SectionTitle.module.css';
 
 interface SectionTitleProps {
@@ -20,7 +21,7 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <header className={cn(styles.wrapper, styles[align], light && styles.light)}>
-      {eyebrow && <span className={styles.eyebrow}>{eyebrow}</span>}
+      {eyebrow && <Eyebrow light={light}>{eyebrow}</Eyebrow>}
       <h2 className={styles.title}>{title}</h2>
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
     </header>

@@ -1,9 +1,20 @@
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { navItems } from '../../data/navigation';
-import { advisor, author } from '../../data/people';
+import { advisors, author } from '../../data/autor';
 import Logo from '../Logo/Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import styles from './Footer.module.css';
+
+/** Coluna do rodapé: título + lista de itens. */
+function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div>
+      <h4 className={styles.heading}>{title}</h4>
+      <ul className={styles.list}>{children}</ul>
+    </div>
+  );
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,30 +30,28 @@ export default function Footer() {
           </p>
         </div>
 
-        <div>
-          <h4 className={styles.heading}>Navegação</h4>
-          <ul className={styles.list}>
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <Link to={item.path}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <FooterColumn title="Navegação">
+          {navItems.map((item) => (
+            <li key={item.path}>
+              <Link to={item.path}>{item.label}</Link>
+            </li>
+          ))}
+        </FooterColumn>
 
-        <div>
-          <h4 className={styles.heading}>Projeto</h4>
-          <ul className={styles.list}>
-            <li>PFC – Sistemas de Informação</li>
-            <li>Universidade de Mogi das Cruzes</li>
-            <li>Orientador: {advisor.name}</li>
-          </ul>
-        </div>
+        <FooterColumn title="Projeto">
+          <li>PFC – Sistemas de Informação</li>
+          <li>Universidade de Mogi das Cruzes</li>
+          {advisors.map((advisor) => (
+            <li key={advisor.name}>
+              {advisor.role}: {advisor.name}
+            </li>
+          ))}
+        </FooterColumn>
       </div>
 
       <div className={`container ${styles.bottom}`}>
         <p>
-          © {year} {author.name}. Todos os direitos reservados.
+          © {year} <strong className={styles.author}>{author.name}</strong>
         </p>
         <SocialLinks links={author.links} variant="dark" />
       </div>

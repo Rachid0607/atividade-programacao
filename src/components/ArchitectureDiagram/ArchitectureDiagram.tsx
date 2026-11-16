@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { ArchitectureLayer } from '../../types';
+import IconBox from '../IconBox/IconBox';
 import styles from './ArchitectureDiagram.module.css';
 
 interface ArchitectureDiagramProps {
@@ -12,16 +13,13 @@ export default function ArchitectureDiagram({ layers }: ArchitectureDiagramProps
   return (
     <div className={styles.diagram} role="list" aria-label="Fluxo da arquitetura do sistema">
       {layers.map((layer, index) => {
-        const { icon: Icon } = layer;
         const isLast = index === layers.length - 1;
 
         return (
           <Fragment key={layer.id}>
             <div className={styles.layer} role="listitem">
               <span className={styles.step}>{index + 1}</span>
-              <div className={styles.icon}>
-                <Icon size={28} aria-hidden="true" />
-              </div>
+              <IconBox icon={layer.icon} tone="brand" size="lg" className={styles.icon} />
               <h3 className={styles.title}>{layer.title}</h3>
               <span className={styles.subtitle}>{layer.subtitle}</span>
               <ul className={styles.items}>

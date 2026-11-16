@@ -1,3 +1,4 @@
+import Eyebrow from '../Eyebrow/Eyebrow';
 import styles from './PageHeader.module.css';
 
 interface PageHeaderProps {
@@ -10,8 +11,8 @@ interface PageHeaderProps {
 export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps) {
   return (
     <section className={styles.header}>
-      <div className="container">
-        <span className={styles.eyebrow}>{eyebrow}</span>
+      <div className={`container ${styles.content}`}>
+        <Eyebrow light>{eyebrow}</Eyebrow>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.subtitle}>{subtitle}</p>
       </div>

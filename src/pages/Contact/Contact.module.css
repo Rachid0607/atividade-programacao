@@ -40,16 +40,6 @@
   color: var(--text-muted);
 }
 
-.successIcon {
-  display: grid;
-  place-items: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--success-soft);
-  color: var(--success);
-}
-
 @keyframes pop {
   from {
     opacity: 0;
