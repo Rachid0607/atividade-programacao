@@ -1,0 +1,57 @@
+.header {
+  position: relative;
+  overflow: hidden;
+  padding-block: 80px 72px;
+  background: var(--gradient-hero);
+  color: #fff;
+}
+
+/* Grade decorativa sutil */
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to left, #000, transparent 70%);
+  pointer-events: none;
+}
+
+.header > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eyebrow {
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+}
+
+.subtitle {
+  max-width: 640px;
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-block: 56px 48px;
+  }
+}

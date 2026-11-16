@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Compensa a altura da Navbar fixa */
+.main {
+  flex: 1;
+  padding-top: var(--nav-height);
+}

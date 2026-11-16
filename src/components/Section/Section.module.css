@@ -1,0 +1,34 @@
+.section {
+  padding-block: var(--section-space);
+}
+
+.default {
+  background: var(--bg);
+}
+
+.soft {
+  background: var(--bg-soft);
+}
+
+.dark {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-900);
+  color: #fff;
+}
+
+/* Brilho decorativo no fundo escuro */
+.dark::before {
+  content: '';
+  position: absolute;
+  inset: -40% auto auto -10%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 111, 240, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.dark > * {
+  position: relative;
+}

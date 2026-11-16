@@ -1,0 +1,43 @@
+.twoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.objectives {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text);
+}
+
+.checklist svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--success);
+}
+
+.narrow {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+@media (max-width: 860px) {
+  .twoColumns,
+  .objectives {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,196 @@
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 88px 96px;
+  background: var(--gradient-hero);
+  color: #fff;
+}
+
+/* Brilhos decorativos */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -160px;
+  right: -120px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(59, 111, 240, 0.55), transparent 70%);
+}
+
+.hero::after {
+  bottom: -220px;
+  left: -160px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(245, 179, 1, 0.18), transparent 70%);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.title span {
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--text-light);
+}
+
+.slogan {
+  max-width: 520px;
+  font-size: 1.15rem;
+  color: var(--text-light);
+}
+
+.slogan strong {
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ===== Como funciona ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ===== Funcionalidades ===== */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* ===== Destaques ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ===== Chamada final ===== */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-hero);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta .actions {
+  flex-shrink: 0;
+}
+
+.cta h2 {
+  margin-bottom: 8px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cta p {
+  color: var(--text-light);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1024px) {
+  .featureGrid,
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero {
+    padding-block: 64px 72px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .steps,
+  .featureGrid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .actions > * {
+    width: 100%;
+  }
+}

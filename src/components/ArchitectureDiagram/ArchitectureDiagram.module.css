@@ -1,0 +1,174 @@
+.diagram {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.layer {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 320px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--blue-600);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.layer:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.layer:nth-child(3) {
+  border-top-color: var(--accent);
+}
+
+.layer:nth-child(5) {
+  border-top-color: var(--navy-800);
+}
+
+.step {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--border);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 6px;
+  border-radius: 18px;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: var(--navy-900);
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--blue-600);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.items li {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Seta entre as camadas */
+.connector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 96px;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--blue-500) 0 8px, transparent 8px 14px);
+  background-size: 28px 2px;
+  animation: flow 1s linear infinite;
+}
+
+.arrow {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--navy-900);
+  box-shadow: var(--shadow-md);
+}
+
+.label {
+  position: absolute;
+  top: calc(50% + 26px);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--navy-900);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@keyframes flow {
+  to {
+    background-position: 28px 0;
+  }
+}
+
+/* Mobile/tablet: diagrama vertical */
+@media (max-width: 860px) {
+  .diagram {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .layer {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .connector {
+    flex-basis: 88px;
+    width: 100%;
+  }
+
+  .line {
+    left: 50%;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
+    background: repeating-linear-gradient(180deg, var(--blue-500) 0 8px, transparent 8px 14px);
+    animation: none;
+    transform: translateX(-50%);
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+  }
+
+  .label {
+    top: 50%;
+    left: calc(50% + 28px);
+    transform: translateY(-50%);
+  }
+}
